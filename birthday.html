@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love! ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 90%;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 20px auto; /* Added margin to separate from the image */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Makes the photo circular */
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flower {
+            position: absolute;
+            bottom: -50px;
+            animation: floatUp 15s infinite ease-in;
+            opacity: 0;
+            font-size: 2em;
+            pointer-events: none;
+            color: #fff;
+            z-index: 5;
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The audio tag for the background music -->
+    <!-- Important: The src below is now a relative file path. -->
+    <audio controls autoplay loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <h1>Happy Birthday, My Love! 🎉</h1>
+        
+        <!-- The photo frame for your picture -->
+        <!-- Replace the img src with a link to your photo -->
+        <div class="photo-frame">
+            <img src="our.jpg" alt="A photo of us" />
+        </div>
+
+        <p>
+            My love, on this special day, I want to wish you the happiest of birthdays.
+            You bring so much joy, laughter, and light into my life. Every moment with you is a gift,
+            and I'm so grateful to have you. I hope your day is filled with all the happiness you deserve.
+            I love you more than words can say! ❤️ love you so much mo chua mo dhanu mo sunu love you chua.......❤️❤️❤️❤️❤️❤️
+        </p>
+    </div>
+
+    <script>
+        const flowers = ['🌸', '🌺', '🌹', '🌻', '🌼', '🌷','❤️'];
+        const body = document.body;
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            
+            const size = Math.random() * 20 + 15;
+            flower.style.fontSize = `${size}px`;
+            
+            const leftPosition = Math.random() * 100;
+            flower.style.left = `${leftPosition}vw`;
+
+            const duration = Math.random() * 10 + 10;
+            flower.style.animationDuration = `${duration}s`;
+
+            const delay = Math.random() * 5;
+            flower.style.animationDelay = `${delay}s`;
+
+            body.appendChild(flower);
+
+            flower.addEventListener('animationend', () => {
+                flower.remove();
+            });
+        }
+
+        setInterval(createFlower, 500);
+    </script>
+
+</body>
+</html>
